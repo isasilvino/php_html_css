@@ -25,7 +25,7 @@ switch ($escolha) {
         echo "Digite o segundo número: ";
         $numeroDois = readline();
 
-        $sub = $numero + $numeroDois;
+        $sub = $numero - $numeroDois;
         echo "Resultado da subtração: {$sub}";
         break;
 
@@ -37,7 +37,7 @@ switch ($escolha) {
         echo "Digite o segundo número: ";
         $numeroDois = readline();
 
-        $mult = $numero + $numeroDois;
+        $mult = $numero * $numeroDois;
         echo "Resultado da multiplicação: {$mult}";
         break;
 
@@ -49,7 +49,7 @@ switch ($escolha) {
         echo "Digite o segundo número: ";
         $numeroDois = readline();
 
-        $div = $numero + $numeroDois;
+        $div = $numero / $numeroDois;
         echo "Resultado da divisão: {$div}";
         break;
 

@@ -10,7 +10,7 @@ if($nome == 'Isadora' && $idade == 21){
     echo "Olá {$nome}";
     echo "\nVocê tem {$idade} anos.";
 }else
-    echo "Nenhuma condição confere.";
+    echo "A condição confere.";
 
 
 
