@@ -8,4 +8,8 @@ return ($dado % 2)== 0;
 
 
 print_r($numeros);
+
+
+//$numeros = array_filter($numeros, fn(%dado) => $dado % 2 ==0);
+//print_r ($numeros);
 ?>

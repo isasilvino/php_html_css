@@ -6,7 +6,7 @@ $numero = readline();
 function fatorial($numero){
 
     for ($i=0; $i < $numero ; $i++) { 
-        $mult = $numero * $i++;
+        $mult = $numero * $i;
     }
     echo "O fatorial do numero é: {$mult}";
 }
