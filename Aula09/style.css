@@ -1,0 +1,102 @@
+.menu{
+    text-align: center;
+}
+
+nav a {
+    color: #f1eace;
+    text-decoration: none;
+    margin: 20px;
+}
+nav a:hover {
+    color: steelblue;
+}
+
+
+#inicio h1 {
+    color: #f1eace;
+    font-family: fantasy;
+    font-size: 70px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+#inicio p {
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center
+}
+
+body {
+    background-color: #ADD8E6;
+    color: black;
+
+}
+
+#container {
+    padding-left: 50px;
+}
+
+#container h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.texto {
+    display: flex;
+    align-items: start; /* Mantém a imagem e o texto alinhados verticalmente */
+    gap: 15px; /* Espaço entre a imagem e o texto */
+    max-width: 800px; /* Define uma largura máxima para evitar textos muito longos */
+    margin-bottom: 20px; /* Adiciona um espaçamento entre os blocos */
+
+}
+
+.texto p {
+    margin: 0; /* Remove margens padrão do parágrafo */
+    text-align: justify; /* Justifica o texto para um visual mais organizado */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.imagem {
+    height: 150px;
+    width: 150px;
+    flex-shrink: 0; /* Impede que a imagem diminua se o espaço for pequeno */
+
+}
+#sobre{
+    padding-left: 50px;
+}
+
+#sobre h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.sobreSite p{
+    padding-right: 50px;
+    padding-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+footer img{
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+footer{
+    display: flex;
+    justify-content: center;
+}
+footer a{
+    color: #f1eace;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+
+}
+footer a:hover {
+    color: steelblue;
+    
+}
+
+ footer p{
+    margin-top: 2px;
+ }
