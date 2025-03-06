@@ -1,6 +1,69 @@
-.item{
+body {
 
-    background-color: aquamarine;
-    width: 200px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-align: center;
+   
+
     
+}
+
+header {
+    margin-bottom: 200px;
+    text-align: center;
+}
+
+
+
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    margin: 20px;
+    font-size: larger;
+    font-family: fantasy;
+
+}
+
+nav a:hover {
+    color: rgb(6, 60, 105);
+    font-size: medium;
+    margin: 24px;
+
+}
+
+
+
+img {
+
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+    
+
+}
+
+.texto {
+
+    gap: 30px;
+    text-align: center;
+   
+
+}
+
+.texto strong {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+   
+
+
+}
+
+.texto p {
+    font-size: larger;
+    max-width: 600px;
+    font-family: Arial, Helvetica, sans-serif;
+   
+
 }
