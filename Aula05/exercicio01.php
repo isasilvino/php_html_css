@@ -5,7 +5,7 @@ $informacoes = [
     'nome'=> "Isadora",
     'idade'=> 21,
     'curso'=> 'ADS',
-    'nota'=> 8.5
+    'nota'=> 9.5
 
 ];
 
