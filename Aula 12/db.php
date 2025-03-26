@@ -1,10 +1,10 @@
 <?php
 function db(){
-    $db = new PDO('sqlite:banco:sqlite');
-    var_dump($db) ;
+    $db = new PDO('sqlite:banco.sqlite');
+   
     return $db;
      
 }
 
-db();
+
 ?>
