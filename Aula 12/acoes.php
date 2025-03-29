@@ -2,7 +2,7 @@
 include('db.php');
 
 if (isset($_POST['cadastrar_usuario'])) {
-    $query = db()->prepare('INSERT INTO usuarios (nome, email,  ) VALUES (:nome, :email, :senha)');
+    $query = db()->prepare('INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)');
 
     
 
@@ -39,16 +39,40 @@ if (isset($_POST['login_usuario'])) {
     }
 }
 
+if (isset($_POST['deletar_usuario']) && isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
 
-if (isset($_POST['deletar_usuario'])) {
-    $query = db()->prepare('DELETE FROM  usuarios WHERE email = :?');
+
+    $query = db()->prepare('DELETE FROM  usuarios WHERE email = :email');
 
     
 
-    $query->execute([
-        'nome' => $_POST['nome'],
-        'email'=> $_POST['email'],
-        'senha'=> password_hash($_POST['senha'], PASSWORD_DEFAULT)
-    ]);
+    $query->execute(['email'=> $email]);
+
+    session_destroy();
     header('Location: index.php');
+    exit;
 }
+
+
+if (isset($_POST['editar_usuario'])) {
+    header('Location: editarDados.php');
+    
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    if (empty($senha)) {
+        $query = db()->prepare('UPDATE usuarios SET nome = :nome, email = :email WHERE email = :email');
+        $query->execute(['nome' => $nome, 'email' => $email, 'email' => $_SESSION['email']]);
+    }else {
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        $query = db()->prepare('UPDATE usuarios SET nome = :nome, email = :email WHERE email = :email');
+        $query->execute(['nome' => $nome, 'email' => $email, 'email' => $_SESSION['email']]);
+    }
+    $_SESSION['email'] = $email;
+    header('Location: principal.php');
+    exit;
+    }
+

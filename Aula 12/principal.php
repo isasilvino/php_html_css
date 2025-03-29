@@ -10,24 +10,17 @@
 <form action="acoes.php" method="post">  <h2>Deletar minha conta</h2>
 
 
-
-
-
-
-
-
-
-
-
-<button type="submit" name="deletar_usuario">Deletar minha conta</button>
+<button  type="submit" name="deletar_usuario">Deletar minha conta</button>
+<button type="submit" name="editar_usuario">Editar minha conta</button>
 
 </form>
-    
+<a href="logout.php">
+    <button type="button">Sair</button>
+</a>
 </body>
 </html>
 
 <?php
-
 
 
 ?>
