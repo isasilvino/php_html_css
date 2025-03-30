@@ -21,7 +21,10 @@
 <br><label for="Senha"> Digite sua senha</label><br>
 <input type="password" name="senha">
 
+
+
 <button type="submit" name="login_usuario">Login</button>
+
 
 
 <button ><a href="cadastro.php">Cadastrar</a></button>
