@@ -10,7 +10,7 @@
 
 <body class="bg-yellow-50 flex justify-center items-center h-screen">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 class="text-3xl font-bold text-center text-orange-600 mb-6">Bem-vindo ao Criativo</h2>
+        <h2 class="text-3xl font-bold text-center text-orange-600 mb-6">Bem-vindo ao <span class="bg-gradient-to-r from-orange-600 via-pink-700 to-pink-300 text-transparent bg-clip-text">Artify</span></h2>
         <form action="acoes.php" method="post">
 
 
