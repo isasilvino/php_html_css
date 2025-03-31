@@ -43,7 +43,7 @@ if (!$usuario) {
     <label class="block text-gray-700 font-medium">Usuário</label>
     <input type="text" name="nome" id="username"
         class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
-        value="<?= isset($usuario['nome']) ? (strpos($usuario['nome'], '@') === 0 ? $usuario['nome'] : '@' . $usuario['nome']) : ''; ?>"
+        value="<?= isset($usuario['nome']) && $usuario['nome'] !== null ? (strpos($usuario['nome'], '@') === 0 ? $usuario['nome'] : '@' . $usuario['nome']) : ''; ?>"
         required>
 
     <script>
@@ -81,22 +81,22 @@ if (!$usuario) {
             <div>
                 <label class="block text-gray-700 font-medium">Localização <span class="text-xs text-gray-500">(opcional)</span></label>
                 <input type="text" name="localizacao_user"
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
-                    value="<?= htmlspecialchars($usuario['localizacao']); ?>">
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+                value="<?= isset($usuario['localizacao']) ? htmlspecialchars($usuario['localizacao']) : ''; ?>">
             </div>
 
             <div>
                 <label class="block text-gray-700 font-medium">Website <span class="text-xs text-gray-500">(opcional)</span></label>
                 <input type="text" name="website_user"
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
-                    value="<?= htmlspecialchars($usuario['website']); ?>">
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+                value="<?= isset($usuario['website']) ? htmlspecialchars($usuario['website']) : ''; ?>">
             </div>
 
             <div>
                 <label class="block text-gray-700 font-medium">Bio <span class="text-xs text-gray-500">(opcional)</span></label>
                 <input type="text" name="bio_user"
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
-                    value="<?= htmlspecialchars($usuario['bio']); ?>">
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+                value="<?= isset($usuario['bio']) ? htmlspecialchars($usuario['bio']) : ''; ?>">
             </div>
             <div class="flex space-x-4 mt-6">
                 <button type="submit" name="editar_usuario"
