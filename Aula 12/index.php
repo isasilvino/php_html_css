@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 
-<body class="bg-gray-100 flex justify-center items-center h-screen">
+<body class="bg-yellow-50 flex justify-center items-center h-screen">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 class="text-3xl font-bold text-center text-purple-600 mb-6">Bem-vindo ao Criativo</h2>
+        <h2 class="text-3xl font-bold text-center text-orange-600 mb-6">Bem-vindo ao Criativo</h2>
         <form action="acoes.php" method="post">
 
 
@@ -22,11 +22,11 @@
 
 
             <br><label for="Senha" class="text-gray-700 text-sm font-medium"> Digite sua senha</label><br>
-            <input type="password" name="senha" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" requiredv>
+            <input type="password" name="senha" placeholder="Digite sua senha" class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6" requiredv>
 
 
 
-            <button type="submit" name="login_usuario" class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200 mb-4">Login</button>
+            <button type="submit" name="login_usuario" class="w-full py-3 bg-pink-300 text-white font-semibold rounded-lg hover:bg-pink-400 transition duration-200 mb-4">Login</button>
 
 
 
