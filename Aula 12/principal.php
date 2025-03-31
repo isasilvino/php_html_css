@@ -10,7 +10,7 @@ if (!isset($_SESSION['email'])) {
 
 
 $db = db();
-$query = $db->prepare('SELECT nome, email, localizacao, website, bio FROM usuarios WHERE email = :email');
+$query = $db->prepare('SELECT nome, email, localizacao, website, bio, imagem FROM usuarios WHERE email = :email');
 $query->execute(['email' => $_SESSION['email']]);
 $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -39,8 +39,8 @@ if (!$usuario) {
 
             <!-- foto do user -->
             <div class="w-20 h-20 bg-blue-300 rounded-full overflow-hidden">
-                <?php if (!empty($usuario['foto_perfil'])) { ?>
-                    <img src="<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto de Perfil" class="w-full h-full object-cover">
+                <?php if (!empty($usuario['imagem'])) { ?>
+                    <img src="<?= ($usuario['imagem']); ?>" alt="Foto de Perfil" class="w-full h-full object-cover">
                 <?php } else { ?>
                     <span class="flex items-center justify-center w-full h-full text-white text-xl font-bold">IMG</span>
                 <?php } ?>
