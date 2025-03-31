@@ -27,7 +27,23 @@ if (isset($_SESSION['mensagem'])) {
             <div>
 
                 <label class="block text-gray-700">Usuário</label>
-                <input type="text" name="nome" placeholder="@usuario" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?php echo isset($_SESSION['dados_formulario']['nome']) ? $_SESSION['dados_formulario']['nome'] : ''; ?>" required>
+                <input type="text" name="nome" id="username" placeholder="@usuario" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none" value="<?php echo isset($_SESSION['dados_formulario']['nome']) ? $_SESSION['dados_formulario']['nome'] : ''; ?>" required>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        let input = document.getElementById("username");
+
+                        if (!input.value.startsWith("@")) {
+                            input.value = "@" + input.value.replace(/@/g, "");
+                        }
+
+                        input.addEventListener("input", function() {
+                            if (!input.value.startsWith("@")) {
+                                input.value = "@" + input.value.replace(/@/g, "");
+                            }
+                        });
+                    });
+                </script>
 
 
             </div>
@@ -67,8 +83,8 @@ if (isset($_SESSION['mensagem'])) {
 
         <div class="text-center mt-4">
             <a href="index.php" class="text-gray-500 hover:underline">Já tem uma conta? Faça login</a>
-            
-                        
+
+
         </div>
     </div>
 </body>

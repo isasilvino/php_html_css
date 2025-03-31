@@ -10,6 +10,12 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmar_senha = $_POST['confirmar_senha'];
 
+if (empty($nome) || empty($email) || empty($senha) || empty($confirmar_senha)) {
+    $_SESSION['mensagem'] = "Todos os campos são obrigatórios.";
+    $_SESSION['dados_formulario'] = $_POST;
+    header('Location: cadastro.php');
+    exit;
+}
 
 
 if ($senha !==$confirmar_senha) {
@@ -17,6 +23,10 @@ if ($senha !==$confirmar_senha) {
     $_SESSION['dados_formulario'] = $_POST;
     header('Location: cadastro.php');
     exit;
+}
+
+if ($nome[0] !== '@') {
+    $nome = '@' . ltrim($nome, '@');
 }
 
 
@@ -90,6 +100,9 @@ if (isset($_POST['editar_usuario'])) {
     $bio = isset($_POST['bio_user']) ? $_POST['bio_user'] : NULL;
     $email = $_SESSION['email'];
 
+    if ($nome[0] !== '@') {
+        $nome = '@' . ltrim($nome, '@');
+    }
 
 
 
