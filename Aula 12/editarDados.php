@@ -8,7 +8,7 @@ require 'db.php';
 
 
 if (!isset($_SESSION['email'])) {
-    header('Location:login.php');
+    header('Location:index.php');
     exit;
 }
 
@@ -32,7 +32,7 @@ if (!$usuario) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Editar perfil</title>
 </head>
 
 <body class="bg-yellow-100 min-h-screen flex justify-center items-center">
