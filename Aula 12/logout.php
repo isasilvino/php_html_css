@@ -1,5 +1,7 @@
 
 <?php
+
+//starta a sessao, desfaz a sessao e destroi a sessao = sai da conta
 session_start();
 
 session_unset();
