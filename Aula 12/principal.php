@@ -138,15 +138,16 @@ if (!$usuario) {
         </a>
     </div>
 
-    <!-- Grid de Projetos -->
+    <!-- grid dos projetos na horizontal -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <!-- lista o projetos 1 por 1 -->
         <?php foreach ($listaProjetos as $projeto): ?>
             <div class="bg-white p-5 rounded-xl shadow-lg flex flex-col w-full">
                 <h4 class="text-lg font-bold text-gray-800"><?= htmlspecialchars($projeto['titulo'] ?? '') ?></h4>
                 <p class="text-gray-600 mt-1 flex-grow"><?= htmlspecialchars($projeto['descricao'] ?? '') ?></p>
 
                 <?php if (!empty($projeto['imagem'])): ?>
-                    <img src="<?= htmlspecialchars($projeto['imagem']) ?>" alt="Imagem do Projeto" class="mt-2 rounded-lg h-48 w-full object-cover">
+                    <img src="<?= htmlspecialchars($projeto['imagem']) ?>"  class="mt-2 rounded-lg h-48 w-full object-cover">
                 <?php endif; ?>
 
                 <div class="flex justify-between mt-4">
