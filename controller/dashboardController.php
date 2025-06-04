@@ -29,6 +29,8 @@ class DashboardController {
         $porte = sanitizeInput($_POST['porte'] ?? '');
         $sexo = sanitizeInput($_POST['sexo'] ?? '');
         $descricao = sanitizeInput($_POST['descricao'] ?? '');
+        $status = sanitizeInput($_POST['status']);
+        
         $ong_id = $_SESSION['ong_id'];
 
         // Upload da imagem
@@ -57,6 +59,7 @@ class DashboardController {
             'porte' => $porte,
             'sexo' => $sexo,
             'descricao' => $descricao,
+            'status' => $status,
             'foto' => $foto,
             'ong_id' => $ong_id
         ]);

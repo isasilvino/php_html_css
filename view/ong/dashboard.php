@@ -28,6 +28,7 @@
                             <strong>Tipo:</strong> <?php echo htmlspecialchars($animal['tipo']); ?><br>
                             <strong>Raça:</strong> <?php echo htmlspecialchars($animal['raca']); ?><br>
                             <strong>Idade:</strong> <?php echo htmlspecialchars($animal['idade']); ?>
+                            <strong>Status:</strong> <?php echo htmlspecialchars($animal['status']); ?>
                         </p>
                         <div class="btn-group">
                             <a href="/ProjetoIntegrador/projeto-ongs/editar-animal?id=<?php echo $animal['id']; ?>" 

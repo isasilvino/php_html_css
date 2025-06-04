@@ -26,13 +26,11 @@ class Animal {
         $db = self::getDB();
         try {
             error_log("Iniciando busca de animais disponíveis");
-            
             $sql = "SELECT a.*, o.nome as ong_nome, o.cidade as ong_cidade, o.estado as ong_estado 
-                    FROM animais a 
-                    JOIN ongs o ON a.ong_id = o.id 
-                    WHERE a.status = 'disponivel' 
-                    ORDER BY a.created_at DESC";
-            
+            FROM animais a 
+            JOIN ongs o ON a.ong_id = o.id 
+            WHERE LOWER(a.status) = 'disponivel' 
+            ORDER BY a.created_at DESC";
             error_log("SQL a ser executado: " . $sql);
             
             $stmt = $db->query($sql);

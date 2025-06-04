@@ -52,15 +52,15 @@ class AnimalController {
         }
 
         // Validação dos campos do formulário
-        $campos = [
-            'nome' => FILTER_SANITIZE_STRING,
-            'email' => FILTER_SANITIZE_EMAIL,
-            'telefone' => FILTER_SANITIZE_STRING,
-            'endereco' => FILTER_SANITIZE_STRING,
-            'cidade' => FILTER_SANITIZE_STRING,
-            'estado' => FILTER_SANITIZE_STRING,
-            'motivo' => FILTER_SANITIZE_STRING
-        ];
+      //  $campos = [
+        //    'nome' => FILTER_SANITIZE_STRING,
+        //    'email' => FILTER_SANITIZE_EMAIL,
+        //    'telefone' => FILTER_SANITIZE_STRING,
+          //  'endereco' => FILTER_SANITIZE_STRING,
+          //  'cidade' => FILTER_SANITIZE_STRING,
+           // 'estado' => FILTER_SANITIZE_STRING,
+           // 'motivo' => FILTER_SANITIZE_STRING
+     //   ];
 
         $dados = filter_input_array(INPUT_POST, $campos);
 

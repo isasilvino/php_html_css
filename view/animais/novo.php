@@ -51,6 +51,14 @@
                 <label class="block font-medium">Descrição</label>
                 <textarea name="descricao" rows="4" class="w-full border border-gray-300 rounded p-2"></textarea>
             </div>
+            <div class="mb-4">
+                    <label for="estado" class="block text-gray-700 mb-2">Situação do animal</label>
+                    <select  name="status" required class="w-full border rounded p-2">
+                        <option value="">Selecione...</option>
+                        <option value="disponivel">Disponivel</option>
+                        <option value="adotado">Adotado</option>
+                        <option value="em_processo">Em processo</option>
+                        </div>
 
             <div>
                 <label class="block font-medium">Foto</label>
