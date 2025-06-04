@@ -16,61 +16,53 @@
 
 </head>
 
-<body>
+<body class="bg-gray-900 min-h-screen flex flex-col">
 
     <header>
-        <div id="menu-left">
-            <a href="https://github.com/isasilvino?tab=repositories" target="_blank" rel="noopener noreferrer">
-                <img src="git.png" alt="GitHub" class="icon-git">
-            </a>
-            <a href="https://www.linkedin.com/in/isadora-silvino-cardoso-/" target="_blank" rel="noopener noreferrer">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_JdZfkwuQxVroCUvBiaQ4K6JrnRrbL-5RLQ&s"
-                    alt="LinkedIn" class="icon-linkedin">
-            </a>
-        </div>
-
-        <div id="menu-right">
-            <a href="#" class="ubuntu-regular">Sobre</a>
-            <a href="#contato" class="ubuntu-regular">Contato</a>
-        </div>
+       
     </header>
 
-
-    <div id="sobre">
-        <div class="texto">
-            <img src="gatoicon.jpg" alt="Imagem de gato" class="imagem-icon">
-            <div class="texto-conteudo">
+    <main class="flex-grow">
+        <div id="sobre" class="flex place-content-center justify-center">
+            <img src="gatoicon.jpg" alt="Imagem de gato" class="rounded-full w-100 h-100 object-cover">
+            <div class="text-left text-2xl place-content-center m-10">
                 <h1 class="ubuntu-bold">Olá!</h1>
                 <strong class="ubuntu-medium">Me chamo Isadora,</strong>
-
-                <p class="ubuntu-regular">sou uma desenvolvedora
-                    Back-end
-                    e estudante de Front-end.
+                <p class="ubuntu-regular">
+                    sou uma desenvolvedora Back-end e estudante de Front-end.
                 </p>
-
-
-
             </div>
         </div>
+    </main>
 
 
-        <footer id="contato">
-            <div class="footer-container">
-                <a href="" target="_blank" rel="noopener noreferrer">
-                    <img src="gmail">
-                    <p class="ubuntu-regular">E-mail</p>
-                </a>
-                <a href="" target="_blank" rel="noopener noreferrer">
-                    <img src="gatoicon.jpg" alt="WhatsApp">
-                    <p class="ubuntu-regular">WhatsApp</p>
-                </a>
-                <a href="" target="_blank" rel="noopener noreferrer">
-                    <img src="gatoicon.jpg" alt="LinkedIn">
-                    <p class="ubuntu-regular">LinkedIn</p>
+    
+
+    <footer id="contato" class="w-full bg-white py-6 mt-auto">
+        <div class="max-w-screen-lg mx-auto flex justify-center gap-20">
+            <!-- E-mail -->
+            <div class="flex flex-col items-center justify-end">
+                <a href="mailto:seuemail@email.com" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+                    <img src="gmail icon.png" class="rounded-full w-10 h-10 object-cover mb-2" alt="Gmail">
+                    <p class="ubuntu-regular text-sm">E-mail</p>
                 </a>
             </div>
-        </footer>
+            <!-- WhatsApp -->
+            <div class="flex flex-col items-center justify-end">
+                <a href="https://wa.me/seunumero" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+                    <img src="gatoicon.jpg" class="rounded-full w-10 h-10 object-cover mb-2" alt="WhatsApp">
+                    <p class="ubuntu-regular text-sm">WhatsApp</p>
+                </a>
+            </div>
+            <!-- LinkedIn -->
+            <div class="flex flex-col items-center justify-end">
+                <a href="https://www.linkedin.com/in/seuusuario" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+                    <img src="gatoicon.jpg" class="rounded-full w-10 h-10 object-cover mb-2" alt="LinkedIn">
+                    <p class="ubuntu-regular text-sm">LinkedIn</p>
+                </a>
+            </div>
+        </div>
+    </footer>
 
 </body>
-
 </html>
