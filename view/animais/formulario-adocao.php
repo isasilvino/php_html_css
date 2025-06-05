@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../template/header.php'; ?>
+<?php require_once __DIR__ . '/../template/public-header.php'; ?>
 
 <div class="container">
     <div class="row justify-content-center">

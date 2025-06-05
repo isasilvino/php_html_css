@@ -22,44 +22,51 @@ class Animal {
         return Database::getInstance();
     }
 
-    public static function findAllDisponiveis() {
-        $db = self::getDB();
-        try {
-            error_log("Iniciando busca de animais disponíveis");
-            $sql = "SELECT a.*, o.nome as ong_nome, o.cidade as ong_cidade, o.estado as ong_estado 
-            FROM animais a 
-            JOIN ongs o ON a.ong_id = o.id 
-            WHERE LOWER(a.status) = 'disponivel' 
-            ORDER BY a.created_at DESC";
-            error_log("SQL a ser executado: " . $sql);
-            
-            $stmt = $db->query($sql);
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
-            error_log("Número de animais encontrados: " . count($result));
-            if (count($result) === 0) {
-                error_log("Nenhum animal encontrado. Verificando se há animais na tabela...");
-                $checkSql = "SELECT COUNT(*) FROM animais";
-                $checkStmt = $db->query($checkSql);
-                $totalAnimais = $checkStmt->fetchColumn();
-                error_log("Total de animais na tabela: " . $totalAnimais);
-                
-                $checkSql = "SELECT COUNT(*) FROM ongs";
-                $checkStmt = $db->query($checkSql);
-                $totalOngs = $checkStmt->fetchColumn();
-                error_log("Total de ONGs na tabela: " . $totalOngs);
-            }
-            
-            return $result;
-        } catch (PDOException $e) {
-            error_log("Erro ao buscar animais disponíveis: " . $e->getMessage());
-            error_log("Stack trace: " . $e->getTraceAsString());
-            return [];
+   public static function findAllDisponiveis() {
+    
+    $db = Database::getInstance()->getConnection(); // ← aqui é o segredo
+
+    try {
+        error_log("Iniciando busca de animais disponíveis");
+
+       $sql = "
+    SELECT a.*, o.nome AS ong_nome, o.cidade AS ong_cidade, o.estado AS ong_estado 
+    FROM animais a 
+    JOIN ongs o ON a.ong_id = o.id 
+    WHERE LOWER(TRIM(a.status)) = :status
+";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute(['status' => 'disponivel']);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        error_log("Número de animais encontrados: " . count($result));
+
+        if (count($result) === 0) {
+            error_log("Nenhum animal encontrado. Verificando se há animais na tabela...");
+            $checkSql = "SELECT COUNT(*) FROM animais";
+            $checkStmt = $db->query($checkSql);
+            $totalAnimais = $checkStmt->fetchColumn();
+            error_log("Total de animais na tabela: " . $totalAnimais);
+
+            $checkSql = "SELECT COUNT(*) FROM ongs";
+            $checkStmt = $db->query($checkSql);
+            $totalOngs = $checkStmt->fetchColumn();
+            error_log("Total de ONGs na tabela: " . $totalOngs);
         }
+
+        return $result;
+
+    } catch (PDOException $e) {
+        error_log("Erro ao buscar animais disponíveis: " . $e->getMessage());
+        error_log("Stack trace: " . $e->getTraceAsString());
+        return [];
     }
+}
+
 
     public static function create($data) {
-        $db = self::getDB();
+        $db = Database::getInstance()->getConnection(); // PDO aqui
         try {
             $sql = "INSERT INTO animais (nome, tipo, raca, idade, porte, sexo, descricao, foto, ong_id, status) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -77,7 +84,9 @@ class Animal {
                 'disponivel'
             ];
 
-            $db->query($sql, $params);
+           
+        $stmt = $db->prepare($sql);   // Corrigido aqui
+        $stmt->execute($params);      // E aqui
             return true;
         } catch (PDOException $e) {
             error_log("Erro ao cadastrar animal: " . $e->getMessage());
@@ -85,19 +94,22 @@ class Animal {
         }
     }
 
-    public static function findByOng($ong_id) {
-        $db = self::getDB();
-        try {
-            $stmt = $db->query("SELECT * FROM animais WHERE ong_id = ? ORDER BY id DESC", [$ong_id]);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            error_log("Erro ao buscar animais: " . $e->getMessage());
-            return [];
-        }
+   public static function findByOng($ong_id) {
+    $db = Database::getInstance()->getConnection(); // Isso é um objeto PDO
+    try {
+        $sql = "SELECT * FROM animais WHERE ong_id = ? ORDER BY id DESC";
+        $stmt = $db->prepare($sql);           // Corrigido aqui
+        $stmt->execute([$ong_id]);            // E aqui
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Erro ao buscar animais: " . $e->getMessage());
+        return [];
     }
+}
+
 
     public static function findById($id) {
-        $db = self::getDB();
+        $db = Database::getInstance()->getConnection(); // PDO aqui
         try {
             $sql = "SELECT a.*, o.nome as ong_nome, o.cidade as ong_cidade, o.estado as ong_estado 
                     FROM animais a 
@@ -105,8 +117,11 @@ class Animal {
                     WHERE a.id = ? 
                     LIMIT 1";
             
-            $stmt = $db->query($sql, [$id]);
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+              
+        $stmt = $db->prepare($sql);        // prepara o SQL com ?
+        $stmt->execute([$id]);             // executa passando os valores
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC); 
             if ($data) {
                 return self::createFromArray($data);
             }

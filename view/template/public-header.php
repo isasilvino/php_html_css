@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adote Mais - Encontre seu novo amigo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/ProjetoIntegrador/projeto-ongs/public/css/style.css">
+   
     <style>
         .navbar {
             transition: background-color 0.3s ease;
